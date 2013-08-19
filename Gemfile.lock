@@ -1,8 +1,7 @@
 PATH
   remote: .
   specs:
-    datastructures (0.2.0)
-      rake
+    datastructures (0.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -49,5 +48,6 @@ PLATFORMS
 DEPENDENCIES
   coveralls (~> 0.6.7)
   datastructures!
+  rake
   shoulda
   simplecov

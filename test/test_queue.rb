@@ -25,6 +25,15 @@ class TestQueue < Test::Unit::TestCase
     queue.enqueue('second')
     assert queue.size == 2
 
+    # length aliases size
+    assert queue.size == queue.length
+
+    # first in is at front of queue
+    assert queue.front == 'first'
+
+    # last in is at back of queue
+    assert queue.back == 'second'
+
     # dequeueing returns first in, reduces size
     assert queue.dequeue == 'first'
     assert queue.size == 1

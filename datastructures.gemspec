@@ -14,5 +14,7 @@ Gem::Specification.new do |gem|
   gem.files = Dir['Rakefile', '{lib,test}/**/*', 'README*', 'LICENSE*']
   gem.require_paths = %w[ lib ]
 
+  gem.add_dependency 'rake'
+
   gem.add_development_dependency 'coveralls', '~> 0.6.7'
 end

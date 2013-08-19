@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'datastructures'
 
-class QueueTest < Test::Unit::TestCase
+class TestQueue < Test::Unit::TestCase
 
   def test_queue
 

@@ -9,7 +9,7 @@ module DataStructures
       @array.size
     end
 
-    alias_method :size, :length
+    alias :length :size
 
     def empty?
       @array.empty?
@@ -20,7 +20,7 @@ module DataStructures
     end
 
     def dequeue
-      raise "Queue underflow: nothing to dequeue."
+      raise "Queue underflow: nothing to dequeue." if self.size == 0
       @array.shift
     end
 

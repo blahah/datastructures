@@ -1,4 +1,6 @@
 module DataStructures
+  # Implements a simple FIFO (first in, first out) queue data
+  # structure using an array container.
   class Queue
 
     def initialize

@@ -2,50 +2,75 @@ require 'test_datastructures'
 
 class TestQueue < Test::Unit::TestCase
 
-  def test_queue
+  context "Queue" do
 
-    # we can create a queue
-    queue = DataStructures::Queue.new
-
-    # should start empty
-    assert queue.empty?
-    assert queue.size == 0
-
-    # underflow raises error
-    assert_raise RuntimeError, "Queue underflow: nothing to dequeue" do
-      queue.dequeue
+    setup do
+      @queue = DataStructures::Queue.new
     end
 
-    # enqueueing increases size, removes emptiness
-    queue.enqueue('first')
-    assert !queue.empty?
-    assert queue.size == 1
+    should "be able to create a new instance" do
+      @queue = DataStructures::Queue.new
+    end
 
-    # more enqueueing just increments size
-    queue.enqueue('second')
-    assert queue.size == 2
+    should "begin empty" do
+      assert @queue.empty?
+      assert @queue.size == 0
+    end
 
-    # length aliases size
-    assert queue.size == queue.length
+    should "raise an error on underflow" do
+      assert_raise RuntimeError, "Queue underflow: nothing to dequeue" do
+        @queue.dequeue
+      end
+    end
 
-    # first in is at front of queue
-    assert queue.front == 'first'
+    should "stop being empty when first item added" do
+      @queue.enqueue('first')
+      assert !@queue.empty?
+      assert @queue.size == 1
+    end
 
-    # last in is at back of queue
-    assert queue.back == 'second'
+    should "increment size on enqueueing" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      assert @queue.size == 2
+    end
 
-    # dequeueing returns first in, reduces size
-    assert queue.dequeue == 'first'
-    assert queue.size == 1
+    should "respond to size and length" do
+      @queue.enqueue('first')
+      assert @queue.size == @queue.length
+    end
 
-    # more dequeueing empties the queue
-    assert queue.dequeue == 'second'
-    assert queue.size == 0
-    assert queue.empty?
+    should "have first item in at the front" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      assert @queue.front == 'first'
+    end
 
-    # trying to continue gives underflow
-    assert_raise RuntimeError, "Queue underflow: nothing to dequeue" do
-      queue.dequeue
+    should "have last item in at the back" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      assert @queue.back == 'second'
+    end
+
+    should "return first in queue and get smaller on dequeueing" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      assert @queue.dequeue == 'first'
+      assert @queue.size == 1
+    end
+
+    should "have first and last items equal when length is one" do
+      @queue.enqueue('first')
+      assert @queue.size == 1
+      assert @queue.front == @queue.back
+    end
+
+    should "become empty when last item dequeued" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      2.times{ @queue.dequeue }
+      assert @queue.size == 0
+      assert @queue.empty?
     end
 
   end

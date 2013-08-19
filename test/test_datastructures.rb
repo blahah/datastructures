@@ -8,4 +8,5 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 SimpleCov.start
 
 require 'test/unit'
+require 'shoulda'
 require 'datastructures'

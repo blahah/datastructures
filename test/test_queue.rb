@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'datastructures'
+require 'test_datastructures'
 
 class TestQueue < Test::Unit::TestCase
 

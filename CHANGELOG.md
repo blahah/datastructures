@@ -1,3 +1,8 @@
+0.1.3 (19 Aug, 2013)
+
+* Drop version requirements for dev gems, so travis can handle build
+* Drop support for Ruby < 1.9.3 (missing gems, etc.)
+
 0.1.2 (19 Aug, 2013)
 
 * Add simplecov for local coverage reporting

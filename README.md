@@ -5,7 +5,7 @@ A collection of data structures in Ruby, made for my [data structures challenge]
 
 ## Day 1: Queue
 
-```
+```ruby
 require 'datastructure'
 queue = DataStructures::Queue.new
 queue.enqueue('first')

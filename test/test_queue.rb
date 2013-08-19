@@ -73,6 +73,14 @@ class TestQueue < Test::Unit::TestCase
       assert @queue.empty?
     end
 
-  end
+    should "become empty when cleared" do
+      @queue.enqueue('first')
+      @queue.enqueue('second')
+      @queue.clear
+      assert @queue.size == 0
+      assert @queue.empty?
+    end
 
-end
+  end # Queue context
+
+end # TestQueue

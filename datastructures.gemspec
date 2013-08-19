@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.authors       = [ "Richard Smith" ]
   gem.email         = "rds45@cam.ac.uk"
   gem.homepage      = 'https://github.com/Blahah/datastructures'
-  gem.summary       = %q{ 42 useful data structures }
-  gem.description   = %q{ 42 useful data structures implemented in pure Ruby for my data structures challenge. }
+  gem.summary       = %q{ useful data structures }
+  gem.description   = %q{ useful data structures implemented in pure Ruby for my data structures challenge. }
   gem.version       = DataStructures::VERSION::STRING.dup
 
   gem.files = Dir['Rakefile', '{lib,test}/**/*', 'README*', 'LICENSE*']

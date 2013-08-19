@@ -15,6 +15,10 @@ A collection of data structures in Ruby, made for my [data structures challenge]
 [codeclimate]: https://codeclimate.com/github/Blahah/datastructures
 [coveralls]: https://coveralls.io/repo/Blahah/datastructures
 
+## Installation
+
+`gem install datastructures`
+
 ## Day 1: Queue
 
 ```ruby

@@ -4,16 +4,16 @@ datastructures
 A collection of data structures in Ruby, made for my [data structures challenge](http://blahah.net/2013/08/18/algorithm-challenge)
 
 [![Gem Version](https://badge.fury.io/rb/datastructures.png)][gem]
-[![Build Status](https://secure.travis-ci.org/blahah/datastructures.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/blahah/datastructures.png?travis)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/blahah/datastructures.png)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/blahah/datastructures/badge.png?branch=master)][coveralls]
+[![Build Status](https://secure.travis-ci.org/Blahah/datastructures.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/Blahah/datastructures.png?travis)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/Blahah/datastructures.png)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/Blahah/datastructures/badge.png?branch=master)][coveralls]
 
 [gem]: https://badge.fury.io/rb/datastructures
-[travis]: http://travis-ci.org/blahah/datastructures
-[gemnasium]: https://gemnasium.com/blahah/datastructures
-[codeclimate]: https://codeclimate.com/github/blahah/datastructures
-[coveralls]: https://coveralls.io/repo/blahah/datastructures
+[travis]: https://travis-ci.org/Blahah/datastructures
+[gemnasium]: https://gemnasium.com/Blahah/datastructures
+[codeclimate]: https://codeclimate.com/github/Blahah/datastructures
+[coveralls]: https://coveralls.io/repo/Blahah/datastructures
 
 ## Day 1: Queue
 

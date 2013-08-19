@@ -13,7 +13,7 @@ A collection of data structures in Ruby, made for my [data structures challenge]
 [travis]: https://travis-ci.org/Blahah/datastructures
 [gemnasium]: https://gemnasium.com/Blahah/datastructures
 [codeclimate]: https://codeclimate.com/github/Blahah/datastructures
-[coveralls]: https://coveralls.io/repo/Blahah/datastructures
+[coveralls]: https://coveralls.io/r/Blahah/datastructures
 
 ## Installation
 

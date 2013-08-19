@@ -1,3 +1,7 @@
+0.2.1 (19 Aug, 2013)
+
+* Move rake to dev dependencies
+
 0.2.0 (19 Aug, 2013)
 
 * Added Stack data structure

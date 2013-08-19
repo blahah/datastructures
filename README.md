@@ -11,7 +11,7 @@ gem install datastructures
 
 ## Day 1: Queue
 
-```
+```ruby
 require 'datastructure'
 queue = DataStructures::Queue.new
 queue.enqueue('first')

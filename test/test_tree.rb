@@ -1,15 +1,15 @@
 require 'test_datastructures'
 
-class TestTree < Test::Unit::TestCase
+class TestTreeNode < Test::Unit::TestCase
 
-  context "Tree" do
+  context "TestTreeNode" do
 
     setup do
-      @tree = DataStructures::Tree::Node.new
+      @tree = DataStructures::TreeNode.new('test')
     end
 
     should "be able to create a new instance" do
-      @tree = DataStructures::Tree::Node.new
+      @tree = DataStructures::TreeNode.new('')
     end
 
     should "begin empty" do

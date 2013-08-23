@@ -8,5 +8,9 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 SimpleCov.start
 
 require 'test/unit'
+begin; require 'turn/autorun'; rescue LoadError; end
 require 'shoulda'
 require 'datastructures'
+
+Turn.config.format = :pretty
+Turn.config.trace = 1

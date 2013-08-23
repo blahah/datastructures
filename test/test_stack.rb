@@ -18,7 +18,7 @@ class TestStack < Test::Unit::TestCase
     end
 
     should "raise an error on underflow" do
-      assert_raise RuntimeError, "stack underflow: nothing to pop" do
+      assert_raise RuntimeError, "Stack underflow: nothing to pop" do
         @stack.pop
       end
     end
@@ -65,7 +65,7 @@ class TestStack < Test::Unit::TestCase
       assert @stack.top == @stack.bottom
     end
 
-    should "become empty when last item popd" do
+    should "become empty when last item popped" do
       @stack.push('first')
       @stack.push('second')
       2.times{ @stack.pop }

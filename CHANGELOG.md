@@ -1,3 +1,11 @@
+0.2.1 (19 Aug, 2013)
+
+* Move rake to dev dependencies
+
+0.2.0 (19 Aug, 2013)
+
+* Added Stack data structure
+
 0.1.3 (19 Aug, 2013)
 
 * Drop version requirements for dev gems, so travis can handle build

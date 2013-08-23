@@ -1,6 +1,6 @@
 module DataStructures
-  # Implements a simple FIFO (first in, first out) queue data
-  # structure using an array container.
+  # Implements a Tree data structure. TreeNode represents a single node,
+  # and has methods for accessing parents, siblings and children.
   class TreeNode
 
     attr_accessor :children

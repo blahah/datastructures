@@ -26,7 +26,7 @@ class TestTreeNode < Test::Unit::TestCase
       assert_equal @tree.child_count, 1, "child count should be 1"
       assert !@tree.is_leaf?, "should no longer be leaf"
       assert_equal @tree.children.first, child, "only child should be the one just added"
-      
+
       @tree.remove_child! child
       assert_not_include @tree.children, child, "deleted child is forgotten by parent"
     end
@@ -40,9 +40,9 @@ class TestTreeNode < Test::Unit::TestCase
       mother.add_child son
       uncle = DataStructures::TreeNode.new('the uncle')
       cousin = DataStructures::TreeNode.new('the cousin')
-      uncle.add_child cousin
-      @tree.add_child mother
-      @tree.add_child uncle
+      uncle << cousin
+      @tree << mother
+      @tree << uncle
 
       assert_equal @tree.siblings, nil, "grandmother has no siblings :("
 

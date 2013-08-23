@@ -2,7 +2,7 @@ require 'test_datastructures'
 
 class TestStack < Test::Unit::TestCase
 
-  context "stack" do
+  context "Stack" do
 
     setup do
       @stack = DataStructures::Stack.new

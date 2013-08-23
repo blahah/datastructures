@@ -9,7 +9,7 @@ SimpleCov.start
 
 require 'test/unit'
 begin; require 'turn/autorun'; rescue LoadError; end
-require 'shoulda'
+require 'shoulda-context'
 require 'datastructures'
 
 Turn.config.format = :pretty

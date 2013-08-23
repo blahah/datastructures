@@ -3,9 +3,9 @@ module DataStructures
   # structure using an array container.
   class TreeNode
 
-    attr_reader :children
-    attr_reader :parent
-    attr_reader :data
+    attr_accessor :children
+    attr_accessor :parent
+    attr_accessor :data
 
     def initialize(data,parent=nil)
       @data = data
@@ -14,6 +14,7 @@ module DataStructures
     end
 
     def add_child child
+      child.parent = self
       @children << child
     end
 
@@ -43,7 +44,7 @@ module DataStructures
       if self.is_root?
         nil
       else
-        @parent.children.reject { |sibling| self.id == sibling.id }
+        @parent.children.reject { |sibling| sibling.equal? self }
       end
     end
 

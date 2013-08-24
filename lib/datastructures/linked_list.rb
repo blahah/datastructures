@@ -2,6 +2,8 @@ module DataStructures
   # Implements a doubly Linked List.
   class LinkedList
 
+    require 'pp'
+
     LLNode = Struct.new(:data, :next, :previous)
 
     attr_accessor :first
@@ -16,14 +18,14 @@ module DataStructures
     # When one or more objects are sent as arguments, the LinkedList
     # is populated with those objects in the order sent.
     def initialize *entries
-      if entries.nil?
-        @size = 0
-      else
-        @size = entries.size
-        @first = LLNode.new entries.shift
-        entries.each { |entry| self.push entry }
-        @last = entries.last
+      @size = 0
+      unless entries.empty?
+        @first = LLNode.new(entries.shift, nil, nil)
+        @last = @first
+        @size = 1
+        self.push(*entries) unless entries.empty?
       end
+      # pp "size: #{size}"
     end
 
     # Returns true if the LinkedList is empty
@@ -35,7 +37,7 @@ module DataStructures
     def [] index
       current = @first
       @size.times do |i|
-        return current if i == index
+        return current.data if i == index
         current = current.next
       end
     end
@@ -56,7 +58,7 @@ module DataStructures
     def each &block
       current = @first
       @size.times do
-        yield current
+        yield current.data
         current = current.next
       end
     end
@@ -67,12 +69,15 @@ module DataStructures
     def push *elements
       elements.each do |element|
         node = LLNode.new(element, nil, @last)
-        @last.next = node
+        @first = node if @first.nil?
+        @last.next = node unless @last.nil?
         @last = node
         @size += 1
       end
       self
     end
+
+    alias :<< :push
 
     # Removes the last element from +self+ and returns it.
     # Raises an underflow error if empty.
@@ -81,7 +86,7 @@ module DataStructures
       last = @last
       @last = @last.previous
       @size -= 1
-      last
+      last.data
     end
 
     # Prepends objects to the front of +self+, moving other elements
@@ -89,7 +94,8 @@ module DataStructures
     def unshift *elements
       elements.each do |element|
         node = LLNode.new(element, @first, nil)
-        @first.previous = node
+        @last = node if @last.nil?
+        @first.previous = node unless @first.nil?
         @first = node
         @size += 1
       end
@@ -103,20 +109,39 @@ module DataStructures
       first = @first
       @first = @first.next
       @size -= 1
-      first
+      first.data
     end
 
-    # Returns the index of +node+
-    def index node
+    # Returns the first index equal to +data+ (using == comparison).
+    # Counts from the beginning of the list.
+    def index data
       current = @first
       i = 0
       while !current.nil?
-        return i if current.equal? node
+        return i if current.data == node.data
         i += 1
       end
       nil
     end
 
+    # Returns an array containing the data from the nodes in the list
+    def to_a
+      current = @first
+      array = []
+      while !current.nil?
+        array << current.data
+        current = current.next
+      end
+      array
+    end
+
+    # Returns a string representation of the list
+    def to_s
+      self.to_a.to_s
+    end
+
   end # LinkedList
 
 end # Biopsy
+
+ll = DataStructures::LinkedList.new(*[1,2,3])

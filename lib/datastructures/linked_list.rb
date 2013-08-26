@@ -36,21 +36,33 @@ module DataStructures
     # Element Reference - Returns the element at +index+
     def [] index
       current = @first
-      @size.times do |i|
-        return current.data if i == index
+      (index - 1).times do
         current = current.next
       end
+      current.data
     end
 
-    # Element Assignment - Sets the element at +index+
-    def []= data
-      current = @first
-      i = 0
-      while !current.nil?
-        return i if current.equal? node
-        i += 1
+    # Element Assignment - Sets the element at +index+ to
+    # +:data+
+    def []= index, data
+      if index > @size - 1
+        # fill in the gaps
+        ((index - @size) - 1).times do
+          self.push nil
+        end
+        @last.data = data
+      else
+        # inserting
+        old_node = @first 
+        (index - 1).times do
+          old_node = old_node.next
+        end
+        pp old_node
+        new_node = LLNode.new(data, old_node, old_node.previous)
+        old_node.previous.next = new_node
+        old_node.previous = new_node
       end
-      nil
+      self
     end
 
     # Calls the given block once for each element in +self+, passing

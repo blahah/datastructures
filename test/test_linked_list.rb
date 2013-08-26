@@ -8,6 +8,11 @@ class TestLinkedList < Test::Unit::TestCase
       @ll = DataStructures::LinkedList.new
     end
 
+    should "start empty" do
+      assert @ll.empty?, "should start empty"
+      assert_equal [].to_s, @ll.to_s, "string representation of empty list matches empty array"
+    end
+
     should "be able to create with a single element" do
       @ll = DataStructures::LinkedList.new('test')
       assert_equal 1, @ll.size, "should have size 1 after adding 1"
@@ -32,6 +37,11 @@ class TestLinkedList < Test::Unit::TestCase
       @ll << 'test'
       assert_equal 'test', @ll.first.data, 'single element is first'
       assert_equal 'test', @ll.last.data, 'single element is last'
+      pp @ll.to_a
+
+      @ll[1] = 'another test'
+      pp @ll.to_a
+      assert_equal 'another test', @ll[1], "indexed assignment and retrieval match"
     end
 
     should "allow chained assignment" do 

@@ -15,11 +15,13 @@ module DataStructures
       @edges = {}
     end
 
-    # Assignment - adds a new node with +:value+, returning
-    # self, so that assignments can be chained.
-    def add(value, name=nil, edges)
+    # Assignment - adds a new node with +:value+, and
+    # +:nodeidentifier+, and optionally an array of
+    # identifiers of other nodes defining +:edges+.
+    # Returns self, so that assignments can be chained.
+    def add(value, nodeidentifier, edges=[])
       node = ALNode.new(value)
-      @nodes << node
+      @nodes[nodeidentifier] = node
       @edges[node] = edges
       self
     end
@@ -42,28 +44,31 @@ module DataStructures
       edges.each { |edge| alledges.delete edge }
     end
 
-
-    def get_node_value index
-
+    # Returns the value of the node with +:nodeidentifier+
+    def get_node_value nodeidentifier
+      @nodes[nodeidentifier].value
     end
 
-    # Set with value of node at +:index+ to +:value+
-    def set_node_value(index, value)
-
+    # Set with value of node at +:nodeidentifier+ to +:value+
+    def set_node_value(nodeidentifier, value)
+      @nodes[nodeidentifier].value = value
     end
 
-    # Adds an edge from node with index +:x+ to node
-    # with index +:y+.
+    # Adds an edge from node with identifier +:x+ to node
+    # with identifier +:y+.
     def add_edge(x, y)
-
+      @edges[@nodes[x]] << y
     end
 
+    # True if +:x+ and +:y+ are connected by an edge.
     def adjacent?(x, y)
-
+      @edges[@nodes[x]].include?(y) || @edges[@nodes[y]].include?(x)
     end
 
+    # Return an array of identifiers of all nodes connected to 
+    # +:x+ by edges.
     def neighbours x
-
+      @edges[@nodes[x]]
     end
 
   end

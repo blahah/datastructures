@@ -11,7 +11,7 @@ module DataStructures
     # Nodes are accessed with unique names if +:named+ is true,
     # otherwise they are accessed with integer indices (default).
     def initialize(named=false)
-      @nodes = named ? {} : []
+      @nodes = {}
       @edges = {}
     end
 
@@ -19,10 +19,10 @@ module DataStructures
     # +:nodeidentifier+, and optionally an array of
     # identifiers of other nodes defining +:edges+.
     # Returns self, so that assignments can be chained.
-    def add(value, nodeidentifier, edges=[])
+    def add(value, nodeidentifier, edges=Array.new)
       node = ALNode.new(value)
       @nodes[nodeidentifier] = node
-      @edges[node] = edges
+      @edges[nodeidentifier] = edges
       self
     end
 
@@ -35,12 +35,10 @@ module DataStructures
       @edges.delete node
     end
 
-    # Removal - deletes the edge(s) +:edges+ connected to +:node+.
-    # +:node+ can be either the actual node to be modified, its index
-    # (if this is an indexed list) or its name (is this is a named list)
-    def delete_edge(node, *edges)
-      node = @nodes[node] if node.class != ALNode
-      alledges = @edges[node]
+    # Removal - deletes the edge(s) +:edges+ connected to the node
+    # referenced by +:nodeidentifer+.
+    def delete_edge(nodeidentifier, *edges)
+      alledges = @edges[nodeidentifier]
       edges.each { |edge| alledges.delete edge }
     end
 
@@ -57,18 +55,18 @@ module DataStructures
     # Adds an edge from node with identifier +:x+ to node
     # with identifier +:y+.
     def add_edge(x, y)
-      @edges[@nodes[x]] << y
+      @edges[x] << y
     end
 
     # True if +:x+ and +:y+ are connected by an edge.
     def adjacent?(x, y)
-      @edges[@nodes[x]].include?(y) || @edges[@nodes[y]].include?(x)
+      @edges[x].include?(y) || @edges[y].include?(x)
     end
 
     # Return an array of identifiers of all nodes connected to 
-    # +:x+ by edges.
-    def neighbours x
-      @edges[@nodes[x]]
+    # node at +:nodeidentifier+ by edges.
+    def neighbours nodeidentifier
+      @edges[nodeidentifier]
     end
 
   end

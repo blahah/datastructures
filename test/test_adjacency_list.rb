@@ -33,7 +33,7 @@ class TestAdjacencyList < Test::Unit::TestCase
       assert !@al.adjacent?(:one, :two), "deleting edge removes adjacency"
     end
 
-    should "allow handling nodes by index" do
+    should "allow handling nodes by index" do 
       a = {
         1 => ['content 1', [2]],
         2 => ['content 2', [3]],
@@ -55,6 +55,23 @@ class TestAdjacencyList < Test::Unit::TestCase
       @al.delete_edge(1, 2)
       assert_equal @al.neighbours(1), [], "deleting edge removes neighbour"
       assert !@al.adjacent?(1, 2), "deleting edge removes adjacency"
+    end
+
+    should "allow node manipulation" do
+      @al.add('test node', 1)
+
+      assert_equal 'test node', @al.get_node_value(1), "node starts with assigned value"
+      @al.set_node_value(1, 'changed value')
+      assert_equal 'changed value', @al.get_node_value(1), "setting node value changes it"
+
+      assert_equal [], @al.neighbours(1), "node starts with no neighbours"
+      @al.add_edge(1, 2)
+      assert_equal [2], @al.neighbours(1), "adding an edge makes target a neighbour"
+
+      @al.delete(1)
+      assert_raise NoMethodError, "accessing a deleted node throws an error" do
+        @al.get_node_value(1)
+      end
     end
 
   end # AdjacencyList context

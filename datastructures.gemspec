@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{ useful data structures }
   gem.description   = %q{ useful data structures implemented in pure Ruby for my data structures challenge. }
   gem.version       = DataStructures::VERSION::STRING.dup
+  gem.license      = 'MIT'
 
   gem.files = Dir['Rakefile', '{lib,test}/**/*', 'README*', 'LICENSE*']
   gem.require_paths = %w[ lib ]

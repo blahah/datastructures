@@ -1,6 +1,6 @@
 module DataStructures
 
-  # Implements an Adjacency list with integer-indexed nodes
+  # Implements an Adjacency list with indexed nodes
   class AdjacencyList
 
     ALNode = Struct.new(:value)
@@ -11,7 +11,7 @@ module DataStructures
     # Nodes are accessed with unique names if +:named+ is true,
     # otherwise they are accessed with integer indices (default).
     def initialize(named=false)
-      @nodes = named ? [] : {}
+      @nodes = named ? {} : []
       @edges = {}
     end
 

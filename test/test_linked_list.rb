@@ -71,8 +71,21 @@ class TestLinkedList < Test::Unit::TestCase
       a = [1, 2, 3, 4]
       @ll.push(*a)
       4.times do |i|
-        assert_equal a[3 - i], @ll.pop, "#{i}th item in shuld be #{3 - i}th in stack"
+        assert_equal a[3 - i], @ll.pop, "#{i}th item in should be #{3 - i}th in stack"
       end
+    end
+
+    should "act as an inverse stack" do
+      a = [1, 2, 3, 4]
+      @ll.unshift(*a)
+      4.times do |i|
+        assert_equal a[3 - i], @ll.shift, "#{i}th item in should be #{3 - i}th in inverse stack"
+      end
+    end
+
+    should "fail to find index for non-contained data" do
+      @ll.push(1,2,3,4)
+      assert @ll.index(5).nil?, "index should be nil when data not found"
     end
 
   end # LinkedList context

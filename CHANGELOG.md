@@ -1,3 +1,10 @@
+0.3.0 (26 Aug, 2013)
+
+* Add Tree data structure
+* Add Linked List data structure
+* Add Adjacency List data structure
+* Fix Stack test typos
+
 0.2.1 (19 Aug, 2013)
 
 * Move rake to dev dependencies

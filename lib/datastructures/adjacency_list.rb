@@ -69,5 +69,14 @@ module DataStructures
       @edges[nodeidentifier]
     end
 
+    # Return a string representation of the graph
+    def to_s
+      s = ""
+      @nodes.each do |identifier, node|
+        s += "#{identifier} (#{node.value}) => #{@edges[identifier]} \n"
+      end
+      s
+    end
+
   end
 end

@@ -33,7 +33,7 @@ class TestLinkedList < Test::Unit::TestCase
       end
     end
 
-    should "allow assignment, insertion and retrieval" do
+    should "allow assignment, insertion, retrieval and deletion" do
       @ll << 'test'
       assert_equal 'test', @ll.first.data, 'single element is first'
       assert_equal 'test', @ll.last.data, 'single element is last'
@@ -52,6 +52,9 @@ class TestLinkedList < Test::Unit::TestCase
       @ll.insert(1, 'inserted data')
       assert_equal @ll[1], 'inserted data', "insertion set the value at index"
       assert_equal @ll[2], 'another test', "insertion moves existing values along"
+
+      @ll.delete(2)
+      assert_equal 'replacement', @ll[2], 'deletion moves subsequent elements back one'
     end
 
     should "allow chained assignment" do 

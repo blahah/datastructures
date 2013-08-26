@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    datastructures (0.2.1)
+    datastructures (0.3.0)
       rake
 
 GEM

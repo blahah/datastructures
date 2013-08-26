@@ -74,6 +74,16 @@ module DataStructures
       self
     end
 
+    # Delete the node at +:index+
+    def delete index
+      current = @first
+      index.times do
+        current = current.next
+      end
+      current.previous.next = current.next
+      current.next.previous = current.previous
+    end
+
     # Calls the given block once for each element in +self+, passing
     # that element as a parameter
     def each &block

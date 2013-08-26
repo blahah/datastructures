@@ -33,15 +33,25 @@ class TestLinkedList < Test::Unit::TestCase
       end
     end
 
-    should "allow assignment and retrieval" do
+    should "allow assignment, insertion and retrieval" do
       @ll << 'test'
       assert_equal 'test', @ll.first.data, 'single element is first'
       assert_equal 'test', @ll.last.data, 'single element is last'
-      pp @ll.to_a
 
       @ll[1] = 'another test'
-      pp @ll.to_a
+      @ll[3] = 'yet another'
       assert_equal 'another test', @ll[1], "indexed assignment and retrieval match"
+      
+      assert_equal 0, @ll.index('test'), "correct index gets returned for pushed item"
+      assert_equal 1, @ll.index('another test'), "correct index gets returned for assigned item"
+      assert @ll[2].nil?, "assignment > highest index should fill in with nil"
+
+      @ll[2] = 'replacement'
+      assert_equal 'replacement', @ll[2], "filled-in nils can be replaced with values"
+
+      @ll.insert(1, 'inserted data')
+      assert_equal @ll[1], 'inserted data', "insertion set the value at index"
+      assert_equal @ll[2], 'another test', "insertion moves existing values along"
     end
 
     should "allow chained assignment" do 

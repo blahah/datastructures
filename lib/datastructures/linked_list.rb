@@ -25,7 +25,6 @@ module DataStructures
         @size = 1
         self.push(*entries) unless entries.empty?
       end
-      # pp "size: #{size}"
     end
 
     # Returns true if the LinkedList is empty
@@ -36,7 +35,7 @@ module DataStructures
     # Element Reference - Returns the element at +index+
     def [] index
       current = @first
-      (index - 1).times do
+      index.times do
         current = current.next
       end
       current.data
@@ -47,21 +46,31 @@ module DataStructures
     def []= index, data
       if index > @size - 1
         # fill in the gaps
-        ((index - @size) - 1).times do
+        ((index - @size) + 1).times do
           self.push nil
         end
         @last.data = data
       else
-        # inserting
-        old_node = @first 
-        (index - 1).times do
-          old_node = old_node.next
+        # replace existing value
+        current = @first
+        index.times do
+          current = current.next
         end
-        pp old_node
-        new_node = LLNode.new(data, old_node, old_node.previous)
-        old_node.previous.next = new_node
-        old_node.previous = new_node
+        current.data = data
       end
+      self
+    end
+
+    # Insert a node with +:data+ at +:index+.
+    # All nodes +:index+ and above get moved along one.
+    def insert index, data
+      old_node = @first 
+      index.times do
+        old_node = old_node.next
+      end
+      new_node = LLNode.new(data, old_node, old_node.previous)
+      old_node.previous.next = new_node
+      old_node.previous = new_node
       self
     end
 
@@ -130,7 +139,8 @@ module DataStructures
       current = @first
       i = 0
       while !current.nil?
-        return i if current.data == node.data
+        return i if current.data == data
+        current = current.next
         i += 1
       end
       nil

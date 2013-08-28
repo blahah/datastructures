@@ -1,6 +1,7 @@
 require 'datastructures/version'
 require 'datastructures/queue'
 require 'datastructures/priority_queue'
+require 'datastructures/deque'
 require 'datastructures/stack'
 require 'datastructures/tree_node'
 require 'datastructures/linked_list'

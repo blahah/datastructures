@@ -8,7 +8,7 @@ module DataStructures
 
     # Add +:item+ to the queue with +:priority+.
     # +:priority+ must be an integer between 0 and queue.size
-    def enqueue item, priority
+    def enqueue item, priority=0
       raise RangeError.new("priority #{priority} is greater than queue size") if priority > self.size
       @array.push PQNode.new(item, priority)
       @array.sort! { |a, b| a.priority <=> b.priority }

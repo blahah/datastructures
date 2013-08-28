@@ -14,15 +14,19 @@ module DataStructures
       @array.sort! { |a, b| a.priority <=> b.priority }
     end
 
+    # Return the highest priority item in the queue, removing
+    # it from the queue
     def dequeue
       r = super.dequeue
       r.nil? ? r : r.value
     end
 
+    # Inspect the item at the front of the queue
     def front
       super.front.value
     end
 
+    # Inspect the item at the back of the queue
     def back
       super.back.value
     end

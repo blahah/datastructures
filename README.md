@@ -19,6 +19,18 @@ A collection of data structures in Ruby, made for my [data structures challenge]
 
 `gem install datastructures`
 
+## List of data structures
+
+1. queue
+2. stack
+3. tree
+4. linked list
+5. adjacency list (graph)
+6. deque
+7. priority queue
+8. priority deque
+9. binary tree
+
 ## Day 1: Queue
 
 A queue is a simple container-based structure that mimics a real-life queue (e.g. waiting in line at the bank). It is FIFO (first-in-first-out), meaning that when you retrieve items from the queue, they are returned in the order in which they entered. Ruby Arrays provide methods that make Queue implementation trivially easy, but having them named appropriately and contained in a convenience class is worth it to see how they are implemented, and because other structures will inherit from this one. An alternate implementation could be done using a linked list.

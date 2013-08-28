@@ -174,3 +174,66 @@ al.to_s
 # 4 (four) => [2]
 
 ```
+
+## Day 6: Deque
+
+A Deque is a queue which allows adding and removing items at both ends.
+
+```ruby
+require 'datastructures'
+
+dq = DataStructures::Dequeue.new
+dq.enqueue('first') # => ['first']
+dq.enqueue('second') # => ['first', 'second']
+dq.front_enqueue('third') # => ['third', 'first', 'second']
+dq.size # => 3
+dq.empty? # => false
+dq.front # => 'third'
+dq.back # => 'second'
+dq.dequeue # => 'third'
+dq.back_dequeue # => 'second'
+dq.dequeue # => RuntimeError, "Queue underflow: nothing to dequeue"
+```
+
+## Day 7: Priority Queue
+
+A Priority Queue is a queue where items can be added at arbitrary positions in the queue.
+Dequeuing always returns the item with the highest priority.
+
+```ruby
+pq = DataStructures::PriorityQueue.new
+pq.enqueue('first', 0) # => ['first']
+pq.enqueue('second', 1) # => ['second', 'first']
+pq.enqueue('third', 0) # => ['second', 'first', 'third']
+
+# if priority is omitted, defaults to 0 (so items get added to the back of the queue)
+pq.enqueue('fourth') # => ['second', 'first', 'third', 'fourth']
+```
+
+## Day 8: Priority Deque
+
+A Priority Deque is a deque where items can be added at arbitrary positions in the queue.
+Dequeueing can return either the highest or lowest priority item depending on the method used.
+
+```ruby
+pd = DataStructures::PriorityDeque.new
+pd.enqueue(1, 0) # => [1]
+pd.enqueue(2).enqueue(3).enqueue(4) # => [1, 2, 3, 4]
+pd.enqueue(5, 2) # => [5, 1, 2, 3, 4]
+pd.dequeue # => 5
+pq.back_dequeue # => 4
+```
+
+## Day 9: Binary Tree
+
+A binary tree is a tree in which each node can have a maximum of two children. The children are designated _left_ and _right_. All TreeNode methods are available except _:add_child_ and _:remove_child!_.
+
+```ruby
+bt = DataStructures::BinaryTreeNode
+root = bt.new(1)
+leftchild = bt.new(2)
+rightchild = bt.new(3)
+root.add_left_child leftchild
+root.add_right_child rightchild
+root.children # => [2, 3]
+```

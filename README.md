@@ -249,11 +249,3 @@ root.add_left_child leftchild
 root.add_right_child rightchild
 root.children # => [2, 3]
 ```
-
-## Day 10: Suffix Array
-
-A suffix array is a sorted array of all suffixes of a string. It is a space-efficient structure for performing various operations on strings, such as finding the longest common substring, longest repeated substring, keyword-in-context and other operations, as well as being the basis for the Burrows-Wheeler transform.
-
-```ruby
-
-```

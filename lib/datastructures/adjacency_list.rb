@@ -3,6 +3,8 @@ module DataStructures
   # Implements an Adjacency list with indexed nodes
   class AdjacencyList
 
+    require 'set'
+
     ALNode = Struct.new(:value)
 
     attr_accessor :edges
@@ -66,7 +68,9 @@ module DataStructures
     # Return an array of identifiers of all nodes connected to 
     # node at +:nodeidentifier+ by edges.
     def neighbours nodeidentifier
-      @edges[nodeidentifier]
+      reverse = @edges.each_pair.reject { |k, l| !l.include? nodeidentifier }.map { |k, l| k }
+      reverse.flatten!
+      Set.new(@edges[nodeidentifier] + reverse)
     end
 
     # Return a string representation of the graph

@@ -17,6 +17,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'rake'
   gem.add_dependency 'bsearch'
+  gem.add_dependency 'extendmatrix'
 
   gem.add_development_dependency 'turn'
   gem.add_development_dependency 'simplecov'

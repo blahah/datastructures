@@ -28,7 +28,7 @@ class GraphHelpers
       3 => ['content 3', [1], [2]]
     }
     a.each_pair do |name, data|
-      value, edges, ignore = data
+      value, edges = data[0..1]
       graph.add(value, name, edges)
     end
 
@@ -43,7 +43,6 @@ class GraphHelpers
     end
 
     graph.delete_edge(1, 2)
-    pp graph
     assert_equal Set.new([3]), graph.neighbours(1), "deleting edge removes neighbour"
     assert !graph.adjacent?(1, 2), "deleting edge removes adjacency"
   end

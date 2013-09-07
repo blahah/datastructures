@@ -1,4 +1,4 @@
-module DataStructures
+  module DataStructures
 
   class AdjacencyMatrix < AdjacencyList
 
@@ -45,7 +45,7 @@ module DataStructures
     end
 
     def adjacent?(x, y)
-      @matrix[x, y] || @matrix[y, x]
+      @matrix[x, y] == 1 || @matrix[y, x] == 1
     end
 
     def edge_exists? x, y

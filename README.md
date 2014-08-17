@@ -1,7 +1,7 @@
 datastructures
 ==============
 
-A collection of data structures in Ruby, made for my [data structures challenge](http://blahah.net/2013/08/18/algorithm-challenge)
+A collection of data structures in Ruby, made for my [data structures challenge](http://blahah.net/2013/08/18/data-structures-challenge/)
 
 [![Gem Version](https://badge.fury.io/rb/datastructures.png)][gem]
 [![Build Status](https://secure.travis-ci.org/Blahah/datastructures.png?branch=master)][travis]
